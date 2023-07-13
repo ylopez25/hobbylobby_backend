@@ -1,17 +1,15 @@
-const express = require('express');
-const userData = require('./usersData.json');
-const cors = require('cors')
-
+const express = require("express");
+const userData = require("./usersData.json");
+const cors = require("cors");
 
 const app = express();
-app.use(cors())
+app.use(cors());
 
-app.get('/', (request, response) => {
-
-  response.status(200).json({ data: 'Service is running!' });
+app.get("/", (request, response) => {
+  response.status(200).json({ data: "Service is running!" });
 });
 
-app.get('/users', (request, response) => {
+app.get("/users", (request, response) => {
   try {
     const { users } = userData;
     response.status(200).json({ data: users });
@@ -20,8 +18,7 @@ app.get('/users', (request, response) => {
   }
 });
 
-
-app.get('/users/:id', (request, response) => {
+app.get("/users/:id", (request, response) => {
   try {
     const { id } = request.params;
     const { users } = userData;
