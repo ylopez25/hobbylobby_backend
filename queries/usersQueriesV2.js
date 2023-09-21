@@ -1,17 +1,17 @@
-const userData = require("../data/usersData.json");
+const userData = require("../data/usersDataV2.json");
 
-const getAllUsers= () => {
+const getAllUsersV2= () => {
     const { users } = userData;
     return users;
 }
 
-const getUserbyId = (id) => {
+const getUserbyIdV2 = (id) => {
     const { users } = userData;
     const user = users.find((user) => user.id === id);
     return user;
 }
 
 module.exports = {
-    getAllUsers,
-    getUserbyId,
+    getAllUsersV2,
+    getUserbyIdV2,
 };
