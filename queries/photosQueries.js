@@ -1,17 +1,17 @@
-const photoData = require("../data/photosDataV2.json");
+const photosDataV2 = require("../data/photosDataV2.json");
 
-const getAllPhotos= () => {
-    const { photodump } = photoData;
-    return photodump;
-}
-
-const getPhotobyId = (id) => {
-    const { photodump } = photoData;
-    const photo = photodump.find((photo) => photodump.id === id);
-    return photo;
-}
+const getAllPhotosbyUserId = (id) => {
+  const results = [];
+  const { photodump } = photosDataV2;
+  for (const photo of photodump) {
+    const { userId } = photo;
+    if (userId === id) {
+      results.push(photo);
+    }
+  }
+  return results;
+};
 
 module.exports = {
-    getAllPhotos,
-    getPhotobyId,
+  getAllPhotosbyUserId,
 };
