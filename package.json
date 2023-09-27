@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "db_init": "psql -U postgres -f DB/schema.sql",
+    "db_seed": "psql -U postgres -f DB/seed.sql",
     "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
