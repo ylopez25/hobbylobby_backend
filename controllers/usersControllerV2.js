@@ -4,14 +4,14 @@ const { getAllPhotosbyUserId } = require("../queries/photosQueries");
 
 const usersControllerV2 = express.Router();
 
-usersControllerV2.get("/", (request, response) => {
+usersControllerV2.get("/", async (request, response) => {
   try {
     const { include } = request.query;
     if (include === "photos") {
-      const users = getAllUsersWithPhotosV2();
+      const users = await getAllUsersWithPhotosV2();
       return response.status(200).json({ data: users });
     } else {
-      const users = getAllUsersV2();
+      const users = await getAllUsersV2();
       return response.status(200).json({ data: users });
     }
   } catch (err) {
@@ -19,10 +19,10 @@ usersControllerV2.get("/", (request, response) => {
   }
 });
 
-usersControllerV2.get("/:id", (request, response) => {
+usersControllerV2.get("/:id", async (request, response) => {
   try {
     const { id } = request.params;
-    const user = getUserbyIdV2(id);
+    const user = await getUserbyIdV2(id);
     if (user) {
       response.status(200).json({ data: user });
     } else {
@@ -33,12 +33,12 @@ usersControllerV2.get("/:id", (request, response) => {
   }
 });
 
-usersControllerV2.get("/:id/photos", (request, response) => {
+usersControllerV2.get("/:id/photos", async (request, response) => {
   try {
     const { id } = request.params;
-    const user = getUserbyIdV2(id);
+    const user = await getUserbyIdV2(id);
     if (user) {
-      const photos = getAllPhotosbyUserId(id);
+      const photos = await getAllPhotosbyUserId(id);
       return response.status(200).json({ data: photos });
     }
     response.status(404).json({ error: `Could not find student with id ${id}` });
