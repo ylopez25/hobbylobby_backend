@@ -1,4 +1,4 @@
-INSERT INTO photodump (user_id, photo)
+INSERT INTO photos (user_id, photo)
     VALUES
     (1,'https://images.unsplash.com/photo-1584992236310-6edddc08acff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8aG9iYmllc3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60'),
     (1,'https://media.istockphoto.com/id/1128343736/photo/close-up-on-womans-hands-knitting.webp?b=1&s=170667a&w=0&k=20&c=pu1XIe50PYK8ckKS0YdZ-TcBo0Pu2Q7RKdRF0sl695o='),

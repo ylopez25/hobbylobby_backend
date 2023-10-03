@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS photodump;
+DROP TABLE IF EXISTS photos;
 DROP TABLE IF EXISTS users;
 
 CREATE TABLE users (
@@ -11,10 +11,10 @@ CREATE TABLE users (
     skill varchar(255)
 );
 
-CREATE TABLE photodump (
+CREATE TABLE photos(
     id SERIAL PRIMARY KEY,
     user_id integer REFERENCES users(id) ON DELETE CASCADE,
     photo text
 );
 
-CREATE INDEX photodump_user_id ON photodump(user_id)
+CREATE INDEX photos_user_id ON photos(user_id)

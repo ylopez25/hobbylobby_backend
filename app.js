@@ -4,6 +4,7 @@ const usersController = require("./controllers/usersController");
 const usersControllerV2 = require("./controllers/usersControllerV2");
 
 const app = express();
+
 app.use(cors());
 app.use("/users", usersController);
 app.use("/v2/users", usersControllerV2);

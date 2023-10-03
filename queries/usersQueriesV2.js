@@ -1,5 +1,5 @@
 const db = require('../DB');
-const { getAllPhotosbyUserId } = require("./photosQueries");
+const { getPhotosbyUserId } = require("./photosQueries");
 
 const getAllUsersV2 = async () => {
   const users = await db.any('SELECT * FROM users');
@@ -10,7 +10,7 @@ const getAllUsersWithPhotosV2 = async () => {
   const users = await getAllUsersV2();
   for(const user of users) {
     const { id } = user;
-    const photos = await getAllPhotosbyUserId(id);
+    const photos = await getPhotosbyUserId(id);
     user.photos = photos;
   }
   return users;
