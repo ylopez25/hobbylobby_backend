@@ -1,27 +1,23 @@
-const userData = require("../data/usersDataV2.json");
+const db = require('../DB');
 const { getAllPhotosbyUserId } = require("./photosQueries");
 
-const getAllUsersV2 = () => {
-  const { users } = userData;
+const getAllUsersV2 = async () => {
+  const users = await db.any('SELECT * FROM users');
   return users;
 };
 
-const getAllUsersWithPhotosV2 = () => {
-  const results = [];
-  const users = getAllUsersV2();
-  for (const user of users) {
+const getAllUsersWithPhotosV2 = async () => {
+  const users = await getAllUsersV2();
+  for(const user of users) {
     const { id } = user;
-    const photos = getAllPhotosbyUserId(id);
-    const copy = { ...user };
-    copy.photos = photos;
-    results.push(copy);
+    const photos = await getAllPhotosbyUserId(id);
+    user.photos = photos;
   }
-  return results;
+  return users;
 };
 
-const getUserbyIdV2 = (id) => {
-  const { users } = userData;
-  const user = users.find((user) => user.id === id);
+const getUserbyIdV2 = async (id) => {
+  const user = await db.oneOrNone('SELECT * FROM users WHERE id = $1', [id,]);
   return user;
 };
 

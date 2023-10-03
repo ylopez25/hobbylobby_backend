@@ -1,15 +1,8 @@
-const photosDataV2 = require("../data/photosDataV2.json");
+const db = require('../DB');
 
-const getAllPhotosbyUserId = (id) => {
-  const results = [];
-  const { photodump } = photosDataV2;
-  for (const photo of photodump) {
-    const { userId } = photo;
-    if (userId === id) {
-      results.push(photo);
-    }
-  }
-  return results;
+const getAllPhotosbyUserId = async (id) => {
+  const photos = await db.any('SELECT * FROM photodump WHERE user_id = $1', [id]);
+  return photos;
 };
 
 module.exports = {
