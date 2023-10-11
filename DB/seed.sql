@@ -1,3 +1,13 @@
+INSERT INTO cities (name)
+VALUES ('New York City'), ('Buffalo'), ('Rochester');
+
+INSERT INTO users (user_name, city_name, city_id, first_name, last_name, pic, skill)
+VALUES
+    ('silvershadow','New York City', 1, 'elizabeth', 'stanley', 'https://storage.googleapis.com/hatchways-app.appspot.com/assessments/data/frontend/images/voluptasdictablanditiis.jpg','crotchet'),
+    ('StarGazer23', 'Buffalo', 2,'Rosy', 'Hernandez', 'https://storage.googleapis.com/hatchways-app.appspot.com/assessments/data/frontend/images/voluptasautreprehenderit.jpg', 'cooking'),
+    ('ElectricP', 'Rochester', 3,'Avery', 'P', 'https://storage.googleapis.com/hatchways-app.appspot.com/assessments/data/frontend/images/aspernaturnonsapiente.jpg', 'art/crafts');
+
+
 INSERT INTO photos (user_id, photo)
     VALUES
     (1,'https://images.unsplash.com/photo-1584992236310-6edddc08acff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8aG9iYmllc3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60'),

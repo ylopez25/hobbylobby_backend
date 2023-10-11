@@ -1,30 +1,34 @@
 const express = require("express");
 const { getAllUsersV2, getUserbyIdV2, getAllUsersWithPhotosV2 } = require("../queries/usersQueriesV2");
 const { getPhotosbyUserId } = require("../queries/photosQueries");
+const { getAllCities } = require("../queries/citiesQueries");
 
 const usersControllerV2 = express.Router();
 
-usersControllerV2.get('/', async (request, response) => {
+usersControllerV2.get("/", async (request, response) => {
   try {
     const { include } = request.query;
-    if (include === 'photos') {
+    if (include === "photos") {
       const users = await getAllUsersWithPhotosV2();
-      return response.status(200).json({ data: users });
+      const cities = await getAllCities();
+      return response.status(200).json({ data: users, cities });
     } else {
+      const cities = await getAllCities();
       const users = await getAllUsersV2();
-      return response.status(200).json({ data: users });
+      return response.status(200).json({ data: users, cities });
     }
   } catch (err) {
     response.status(500).json({ error: err.message });
   }
 });
 
-usersControllerV2.get('/:id', async (request, response) => {
+usersControllerV2.get("/:id", async (request, response) => {
   try {
     const { id } = request.params;
     const user = await getUserbyIdV2(id);
 
     if (user) {
+      4;
       return response.status(200).json({ data: user });
     } else {
       response.status(404).json({ error: `No student with id of ${id}` });
