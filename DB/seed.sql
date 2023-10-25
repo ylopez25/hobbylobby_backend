@@ -139,7 +139,7 @@ INSERT INTO photos (user_id, photo)
     (14,'https://plus.unsplash.com/premium_photo-1682614337066-4b0d8e21d6e9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDN8fG11c2ljfGVufDB8fDB8fHww&auto=format&fit=crop&w=1400&q=60'),
     (14,'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDV8fG11c2ljfGVufDB8fDB8fHww&auto=format&fit=crop&w=1400&q=60'),
     (14,'https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDh8fG11c2ljfGVufDB8fDB8fHww&auto=format&fit=crop&w=1400&q=60'),
-    (14,'https://unsplash.com/photos/TnsioDMLEug'),
+    (14,'https://plus.unsplash.com/premium_photo-1682614327018-1fc0a10536d3?auto=format&fit=crop&q=80&w=2487&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'),
     (14,'https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTF8fG11c2ljfGVufDB8fDB8fHww&auto=format&fit=crop&w=1400&q=60'),
     (14,'https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTR8fG11c2ljfGVufDB8fDB8fHww&auto=format&fit=crop&w=1400&q=60'),
     (14,'https://plus.unsplash.com/premium_photo-1681182425863-b44293a645d2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTV8fG11c2ljfGVufDB8fDB8fHww&auto=format&fit=crop&w=1400&q=60'),
