@@ -21,8 +21,39 @@ const getUserbyIdV2 = async (id) => {
   return user;
 };
 
+//update
+// const updateUsers = async(id,users) => {
+//   try {
+//     const dbQuery = updateUsersQuery(ids, users)
+//     if (!ids.includes(',')) {
+//       return await db.one(dbQuery.qString, dbQuery.qParams)
+//     }
+
+//     return await db.tx(t => {
+//       const queries = dbQuery.map(q => db.one(q.qString, q.qParams))
+//       return t.batch(queries)
+//     })
+//   } catch (err) {
+//     return 'error'
+//   }
+// }
+
+
+//delete 
+const deleteUsers = async (ids) => {
+  try {
+    if (!ids.includes(',')) {
+      return await db.one('DELETE FROM users WHERE id=$1 RETURNING *;', ids)
+    }
+    return await db.any(`DELETE FROM users WHERE id IN (${ids}) RETURNING *;`)
+  } catch (err) {
+    return 'error'
+  }
+}
+
 module.exports = {
   getAllUsersV2,
   getUserbyIdV2,
   getAllUsersWithPhotosV2,
+  deleteUsers
 };

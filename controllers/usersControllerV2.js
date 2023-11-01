@@ -1,5 +1,5 @@
 const express = require("express");
-const { getAllUsersV2, getUserbyIdV2, getAllUsersWithPhotosV2 } = require("../queries/usersQueriesV2");
+const { getAllUsersV2, getUserbyIdV2, getAllUsersWithPhotosV2, updateUsers, deleteUsers } = require("../queries/usersQueriesV2");
 const { getPhotosbyUserId } = require("../queries/photosQueries");
 const { getAllCities } = require("../queries/citiesQueries");
 
@@ -51,4 +51,30 @@ usersControllerV2.get("/:id/photos", async (request, response) => {
     response.status(500).json({ err: err.message });
   }
 });
+
+//put update 
+
+// usersControllerV2.put('/:id/photos', async (req,res) => {
+//   const {id} = req.params;
+//   try{
+//     const updateUser = await updateUsers(id,req.body);
+//     res.status(200).json(updateUser.length ? updateUser : [updateUser] )
+//   }catch (e){
+//     res.status(400).json({err:e.message})
+//   }
+// })
+
+//delete 
+usersControllerV2.delete(':id/photos', async (req,res) => {
+  const {id} = req.params;
+  try{
+    const deleteUser = await deleteUsers(id);
+    res.status(200).json(deleteUser)
+  }catch (e) {
+    res.status(400).json({error:e.message})
+  }
+})
+
+//post 
+
 module.exports = usersControllerV2;
