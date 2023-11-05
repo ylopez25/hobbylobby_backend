@@ -28,7 +28,6 @@ usersControllerV2.get("/:id", async (request, response) => {
     const user = await getUserbyIdV2(id);
 
     if (user) {
-      4;
       return response.status(200).json({ data: user });
     } else {
       response.status(404).json({ error: `No student with id of ${id}` });
@@ -65,7 +64,7 @@ usersControllerV2.get("/:id/photos", async (request, response) => {
 // })
 
 //delete 
-usersControllerV2.delete(':id/photos', async (req,res) => {
+usersControllerV2.delete('/:id/photos', async (req,res) => {
   const {id} = req.params;
   try{
     const deleteUser = await deleteUsers(id);
