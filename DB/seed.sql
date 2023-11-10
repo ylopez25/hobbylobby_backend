@@ -2,33 +2,33 @@ INSERT INTO cities (name)
 VALUES ('New York City'), ('Buffalo'), ('Rochester'), ('Yonkers'), ('Syracuse'), ('Albany'),('New Rochelle'), ('Long Beach');
 
 
-INSERT INTO users (user_name, city_name, city_id, first_name, last_name, pic, skill)
+INSERT INTO users (user_name, email, city_name, city_id, first_name, last_name, pic, skill)
 VALUES
-    ('Silvershadow','New York City',1,'Elizabeth', 'Stanley', 'https://storage.googleapis.com/hatchways-app.appspot.com/assessments/data/frontend/images/voluptasdictablanditiis.jpg','Crotcheting'),
-    ('StarGazer23','Buffalo',2,'Rosy', 'Hernandez', 'https://storage.googleapis.com/hatchways-app.appspot.com/assessments/data/frontend/images/voluptasautreprehenderit.jpg', 'Cooking'),
-    ('ElectricP','Rochester',3, 'Avery', 'P', 'https://storage.googleapis.com/hatchways-app.appspot.com/assessments/data/frontend/images/aspernaturnonsapiente.jpg', 'Arts/Crafts'),
-    ('MoonlightW','Yonkers',4,'Ashley','H', 'https://storage.googleapis.com/hatchways-app.appspot.com/assessments/data/frontend/images/autautdeserunt.jpg', 'Music'),
-    ('NeonSW','Syracuse',5,'Neo', 'Hannes', 'https://storage.googleapis.com/hatchways-app.appspot.com/assessments/data/frontend/images/consequaturdelectusquis.jpg', 'Photography'),
-    ('MysticScribe','Albany',6,'Janet', 'Lowes', 'https://storage.googleapis.com/hatchways-app.appspot.com/assessments/data/frontend/images/autautdeserunt.jpg', 'Reading'),
-    ('FireflyDream','New Rochelle',7, 'Raven', 'Escober', 'https://storage.googleapis.com/hatchways-app.appspot.com/assessments/data/frontend/images/utquamut.jpg', 'Music'),
-    ('QuantumJester','Long Beach',8,'Ricardo', 'Tu', 'https://storage.googleapis.com/hatchways-app.appspot.com/assessments/data/frontend/images/nesciuntrerumlibero.jpg', 'Planting'),
-    ('CosmicExplorer','Long Beach',8,'Arthor', 'Winofred', 'https://storage.googleapis.com/hatchways-app.appspot.com/assessments/data/frontend/images/autemporroplaceat.jpg', 'Photography'),
-    ('VelvetVoy', 'Long Beach',8, 'Benny', 'Bragg', 'https://storage.googleapis.com/hatchways-app.appspot.com/assessments/data/frontend/images/doloribusquitempora.jpg', 'Cooking'),
-    ('Serene12','Albany',6,'Francine', 'Lopez', 'https://storage.googleapis.com/hatchways-app.appspot.com/assessments/data/frontend/images/utquamut.jpg', 'Crotcheting'),
-    ('Solar','New York City',1,'Celina', 'Cruz', 'https://storage.googleapis.com/hatchways-app.appspot.com/assessments/data/frontend/images/enimpariaturoptio.jpg', 'Arts/Crafts'),
-    ('Midnight90','Buffalo',2,'David', 'Frater', 'https://storage.googleapis.com/hatchways-app.appspot.com/assessments/data/frontend/images/aspernaturnonsapiente.jpg', 'Reading'),
-    ('EnigmaEagle','Syracuse',5,'Joan', 'Lorenzo', 'https://storage.googleapis.com/hatchways-app.appspot.com/assessments/data/frontend/images/nonipsaet.jpg', 'Music'),
-    ('AuroraSK','Rochester',3,'Velma', 'Brown', 'https://storage.googleapis.com/hatchways-app.appspot.com/assessments/data/frontend/images/voluptasdictablanditiis.jpg', 'Planting'),
-    ('SolarFlare','New York City',1,'Carol', 'Jack', 'https://storage.googleapis.com/hatchways-app.appspot.com/assessments/data/frontend/images/utquamut.jpg', 'Photography'),
-    ('EchoSport','Yonkers',4,'Jennifer', 'Rodriguez', 'https://storage.googleapis.com/hatchways-app.appspot.com/assessments/data/frontend/images/enimpariaturoptio.jpg', 'Sports'),
-    ('NebulaNomad','New Rochelle',7,'Xavier', 'Montanna', 'https://storage.googleapis.com/hatchways-app.appspot.com/assessments/data/frontend/images/velitnonquibusdam.jpg','Arts/Crafts'),
-    ('Radiant78','Buffalo',2,'Luis', 'Smith', 'https://storage.googleapis.com/hatchways-app.appspot.com/assessments/data/frontend/images/remtemporavelit.jpg', 'Sports'),
-    ('Ember53','Syracuse',5,'Bryana', 'Miller', 'https://storage.googleapis.com/hatchways-app.appspot.com/assessments/data/frontend/images/etporroalias.jpg', 'Cooking'),
-    ('Pheonix','Yonkers',4,'Kai', 'Jones', 'https://storage.googleapis.com/hatchways-app.appspot.com/assessments/data/frontend/images/velitnonquibusdam.jpg', 'Crotchet'),
-    ('ShadowFrost','Buffalo',2,'Adam','Williams', 'https://storage.googleapis.com/hatchways-app.appspot.com/assessments/data/frontend/images/delenitiestdolorum.jpg', 'Fitness'),
-    ('KristalCraft','Rochester',3,'Krysta', 'Johnson', 'https://storage.googleapis.com/hatchways-app.appspot.com/assessments/data/frontend/images/sitlaborecorrupti.jpg', 'Fitness'),
-    ('DreamBiker','New York City',1,'Olivia', 'White', 'https://storage.googleapis.com/hatchways-app.appspot.com/assessments/data/frontend/images/dolordoloremassumenda.jpg', 'Biking'),
-    ('OceanicOracle','Albany',6,'Kevin', 'Anderson', 'https://storage.googleapis.com/hatchways-app.appspot.com/assessments/data/frontend/images/sitlaborecorrupti.jpg', 'Swimming');
+    ('Silvershadow','sshadow@gmail.com','New York City',1,'Elizabeth', 'Stanley', 'https://storage.googleapis.com/hatchways-app.appspot.com/assessments/data/frontend/images/voluptasdictablanditiis.jpg','Crotcheting'),
+    ('StarGazer23','sgazer23@gmail.com','Buffalo',2,'Rosy', 'Hernandez', 'https://storage.googleapis.com/hatchways-app.appspot.com/assessments/data/frontend/images/voluptasautreprehenderit.jpg', 'Cooking'),
+    ('ElectricP','ep@gmail.com','Rochester',3, 'Avery', 'P', 'https://storage.googleapis.com/hatchways-app.appspot.com/assessments/data/frontend/images/aspernaturnonsapiente.jpg', 'Arts/Crafts'),
+    ('MoonlightW','mlightw@gmail.com','Yonkers',4,'Ashley','H', 'https://storage.googleapis.com/hatchways-app.appspot.com/assessments/data/frontend/images/autautdeserunt.jpg', 'Music'),
+    ('NeonSW','nsw@gmail.com','Syracuse',5,'Neo', 'Hannes', 'https://storage.googleapis.com/hatchways-app.appspot.com/assessments/data/frontend/images/consequaturdelectusquis.jpg', 'Photography'),
+    ('MysticScribe','mscribe@gmail.com','Albany',6,'Janet', 'Lowes', 'https://storage.googleapis.com/hatchways-app.appspot.com/assessments/data/frontend/images/autautdeserunt.jpg', 'Reading'),
+    ('FireflyDream','fdream@gmail.com','New Rochelle',7, 'Raven', 'Escober', 'https://storage.googleapis.com/hatchways-app.appspot.com/assessments/data/frontend/images/utquamut.jpg', 'Music'),
+    ('QuantumJester','qjester@gmail.com','Long Beach',8,'Ricardo', 'Tu', 'https://storage.googleapis.com/hatchways-app.appspot.com/assessments/data/frontend/images/nesciuntrerumlibero.jpg', 'Planting'),
+    ('CosmicExplorer','cexplorer@gmail.com','Long Beach',8,'Arthor', 'Winofred', 'https://storage.googleapis.com/hatchways-app.appspot.com/assessments/data/frontend/images/autemporroplaceat.jpg', 'Photography'),
+    ('VelvetVoy','vvoy@gmail.com','Long Beach',8, 'Benny', 'Bragg', 'https://storage.googleapis.com/hatchways-app.appspot.com/assessments/data/frontend/images/doloribusquitempora.jpg', 'Cooking'),
+    ('Serene12','s12@gmail.com','Albany',6,'Francine', 'Lopez', 'https://storage.googleapis.com/hatchways-app.appspot.com/assessments/data/frontend/images/utquamut.jpg', 'Crotcheting'),
+    ('Solar','solar@gmail.com','New York City',1,'Celina', 'Cruz', 'https://storage.googleapis.com/hatchways-app.appspot.com/assessments/data/frontend/images/enimpariaturoptio.jpg', 'Arts/Crafts'),
+    ('Midnight90','mnight90@gmail.com','Buffalo',2,'David', 'Frater', 'https://storage.googleapis.com/hatchways-app.appspot.com/assessments/data/frontend/images/aspernaturnonsapiente.jpg', 'Reading'),
+    ('EnigmaEagle','eeagle@gmail.com','Syracuse',5,'Joan', 'Lorenzo', 'https://storage.googleapis.com/hatchways-app.appspot.com/assessments/data/frontend/images/nonipsaet.jpg', 'Music'),
+    ('AuroraSK','ask@gmail.com','Rochester',3,'Velma', 'Brown', 'https://storage.googleapis.com/hatchways-app.appspot.com/assessments/data/frontend/images/voluptasdictablanditiis.jpg', 'Planting'),
+    ('SolarFlare','sflare@gmail.com','New York City',1,'Carol', 'Jack', 'https://storage.googleapis.com/hatchways-app.appspot.com/assessments/data/frontend/images/utquamut.jpg', 'Photography'),
+    ('EchoSport','esport@gmail.com','Yonkers',4,'Jennifer', 'Rodriguez', 'https://storage.googleapis.com/hatchways-app.appspot.com/assessments/data/frontend/images/enimpariaturoptio.jpg', 'Sports'),
+    ('NebulaNomad','nnomad@gmail.com','New Rochelle',7,'Xavier', 'Montanna', 'https://storage.googleapis.com/hatchways-app.appspot.com/assessments/data/frontend/images/velitnonquibusdam.jpg','Arts/Crafts'),
+    ('Radiant78','radiant@gmail.com','Buffalo',2,'Luis', 'Smith', 'https://storage.googleapis.com/hatchways-app.appspot.com/assessments/data/frontend/images/remtemporavelit.jpg', 'Sports'),
+    ('Ember53','ember@gmail.com','Syracuse',5,'Bryana', 'Miller', 'https://storage.googleapis.com/hatchways-app.appspot.com/assessments/data/frontend/images/etporroalias.jpg', 'Cooking'),
+    ('Pheonix','pheonix@gmail.com','Yonkers',4,'Kai', 'Jones', 'https://storage.googleapis.com/hatchways-app.appspot.com/assessments/data/frontend/images/velitnonquibusdam.jpg', 'Crotchet'),
+    ('ShadowFrost','sfrost@gmail.com','Buffalo',2,'Adam','Williams', 'https://storage.googleapis.com/hatchways-app.appspot.com/assessments/data/frontend/images/delenitiestdolorum.jpg', 'Fitness'),
+    ('KristalCraft','kcraft@gmail.com','Rochester',3,'Krysta', 'Johnson', 'https://storage.googleapis.com/hatchways-app.appspot.com/assessments/data/frontend/images/sitlaborecorrupti.jpg', 'Fitness'),
+    ('DreamBiker','dbiker@gmail.com','New York City',1,'Olivia', 'White', 'https://storage.googleapis.com/hatchways-app.appspot.com/assessments/data/frontend/images/dolordoloremassumenda.jpg', 'Biking'),
+    ('OceanicOracle','ooracle@gmail.com','Albany',6,'Kevin', 'Anderson', 'https://storage.googleapis.com/hatchways-app.appspot.com/assessments/data/frontend/images/sitlaborecorrupti.jpg', 'Swimming');
 
 INSERT INTO photos (user_id, photo)
     VALUES

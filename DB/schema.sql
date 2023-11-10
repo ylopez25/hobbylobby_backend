@@ -10,6 +10,7 @@ CREATE TABLE cities (
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
     user_name varchar(255),
+    email varchar(255) UNIQUE,
     city_name varchar(255),
     city_id integer,
     first_name varchar(255),
