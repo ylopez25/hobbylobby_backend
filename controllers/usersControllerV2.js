@@ -1,10 +1,15 @@
+//dependencies
 const express = require("express");
-const { getAllUsersV2, getUserbyIdV2, getAllUsersWithPhotosV2, updateUsers, deleteUsers } = require("../queries/usersQueriesV2");
+//queries
+const { getAllUsersV2, getUserbyIdV2, getAllUsersWithPhotosV2, updateUsers,newUser, deleteUser } = require("../queries/usersQueriesV2");
 const { getPhotosbyUserId } = require("../queries/photosQueries");
 const { getAllCities } = require("../queries/citiesQueries");
 
 const usersControllerV2 = express.Router();
+//whn to keep mergeParams?
+//const usersControllerV2 = express.Router({ mergeParams:true });
 
+//INDEX of ALL USERS AND PHOTOS AND CITIES
 usersControllerV2.get("/", async (request, response) => {
   try {
     const { include } = request.query;
@@ -22,6 +27,7 @@ usersControllerV2.get("/", async (request, response) => {
   }
 });
 
+//SHOW ONE USER 
 usersControllerV2.get("/:id", async (request, response) => {
   try {
     const { id } = request.params;
@@ -37,6 +43,7 @@ usersControllerV2.get("/:id", async (request, response) => {
   }
 });
 
+//SHOW USERS PHOTOS
 usersControllerV2.get("/:id/photos", async (request, response) => {
   try {
     const { id } = request.params;
@@ -67,13 +74,13 @@ usersControllerV2.get("/:id/photos", async (request, response) => {
 usersControllerV2.delete('/:id/photos', async (req,res) => {
   const {id} = req.params;
   try{
-    const deleteUser = await deleteUsers(id);
-    res.status(200).json(deleteUser)
+    const deletedUser = await deleteUser(id);
+    res.status(200).json(deletedUser)
   }catch (e) {
     res.status(400).json({error:e.message})
   }
 })
 
-//post 
+//post create
 
 module.exports = usersControllerV2;

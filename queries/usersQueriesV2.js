@@ -40,7 +40,7 @@ const getUserbyIdV2 = async (id) => {
 
 
 //delete 
-const deleteUsers = async (ids) => {
+const deleteUser = async (ids) => {
   try {
     if (!ids.includes(',')) {
       return await db.one('DELETE FROM users WHERE id=$1 RETURNING *;', ids)
@@ -55,5 +55,5 @@ module.exports = {
   getAllUsersV2,
   getUserbyIdV2,
   getAllUsersWithPhotosV2,
-  deleteUsers
+  deleteUser
 };
