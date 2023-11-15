@@ -1,14 +1,14 @@
-const db = require('../DB');
+const db = require("../DB");
 const { getPhotosbyUserId } = require("./photosQueries");
 
 const getAllUsersV2 = async () => {
-  const users = await db.any('SELECT * FROM users');
+  const users = await db.any("SELECT * FROM users");
   return users;
 };
 
 const getAllUsersWithPhotosV2 = async () => {
   const users = await getAllUsersV2();
-  for(const user of users) {
+  for (const user of users) {
     const { id } = user;
     const photos = await getPhotosbyUserId(id);
     user.photos = photos;
@@ -17,43 +17,46 @@ const getAllUsersWithPhotosV2 = async () => {
 };
 
 const getUserbyIdV2 = async (id) => {
-  const user = await db.oneOrNone('SELECT * FROM users WHERE id = $1', [id,]);
+  const user = await db.oneOrNone("SELECT * FROM users WHERE id = $1", [id]);
   return user;
 };
 
-//update
-// const updateUsers = async(id,users) => {
-//   try {
-//     const dbQuery = updateUsersQuery(ids, users)
-//     if (!ids.includes(',')) {
-//       return await db.one(dbQuery.qString, dbQuery.qParams)
-//     }
-
-//     return await db.tx(t => {
-//       const queries = dbQuery.map(q => db.one(q.qString, q.qParams))
-//       return t.batch(queries)
-//     })
-//   } catch (err) {
-//     return 'error'
-//   }
-// }
-
-
-//delete 
-const deleteUser = async (ids) => {
+//CREATE IMAGE? or USER?
+const createPhoto = async (post) => {
   try {
-    if (!ids.includes(',')) {
-      return await db.one('DELETE FROM users WHERE id=$1 RETURNING *;', ids)
-    }
-    return await db.any(`DELETE FROM users WHERE id IN (${ids}) RETURNING *;`)
-  } catch (err) {
-    return 'error'
+    let { photo } = post;
+    const newPost = await db.one("INSERT INTO photos (photo) VALUES ($1) RETURNING *", [photo]);
+    return newPost;
+  } catch (e) {
+    return e;
   }
-}
+};
+
+//UPDATE USER PROFILE
+const updateUser = async (id, user) => {
+  try {
+    const updatedUser = await db.one("UPDATE users SET user_name=$1, firstname=$2, city_name=$3, skill=$4, pic=$5 WHERE id=$6 RETURNING *", [user.user_name, user.firstname, user.city_name, user.skill, user.pic, id]);
+    return updatedUser;
+  } catch (err) {
+    return err;
+  }
+};
+
+//delete photos
+const deletePhoto = async (id) => {
+  try {
+    const deletedPhoto = await db.one("DELETE FROM photos WHERE id=$1 RETURNING *", id);
+    return deletedPhoto;
+  } catch (err) {
+    return "error";
+  }
+};
 
 module.exports = {
   getAllUsersV2,
   getUserbyIdV2,
   getAllUsersWithPhotosV2,
-  deleteUser
+  createPhoto,
+  deletePhoto,
+  updateUser,
 };
