@@ -33,12 +33,18 @@ const createPhoto = async (post) => {
 };
 
 //UPDATE USER PROFILE
-const updateUser = async (id) => {
+const updateUser = async (id, users) => {
+  console.log(users,'userr')
+  const { user_name, email, city_name, city_id, first_name, last_name, pic, skill } = users;
+ console.log(id,'id')
+  console.log(user_name, 'username')
+
   try {
-    const updatedUser = await db.one('UPDATE users SET user_name=$1, email=$2, city_name=$3, city_id=$4, first_name=$5, last_name=$6, pic=$7, skill=$8 WHERE id=$9',
+    const updatedUser = await db.one('UPDATE users SET user_name=$1, email=$2, city_name=$3, city_id=$4, first_name=$5, last_name=$6, pic=$7, skill=$8 WHERE id=$9 RETURNING *',
      [user_name, email, city_name, city_id, first_name, last_name, pic, skill, id]);
     return updatedUser;
   } catch (err) {
+    console.error('Database Error:', err);
     return err;
   }
 };

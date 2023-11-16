@@ -45,6 +45,7 @@ usersControllerV2.get("/:id", async (request, response) => {
 //put update
 
 usersControllerV2.put("/:id", async (req, res) => {
+  console.log(req.body, 'request body')
   try {
     const { id } = req.params;
     const updatedUser = await updateUser(id,req.body);
