@@ -1,13 +1,12 @@
 //dependencies
 const express = require("express");
 //queries
-const { getAllUsersV2, getUserbyIdV2, getAllUsersWithPhotosV2, updateUsers,newUser, deleteUser } = require("../queries/usersQueriesV2");
+const { getAllUsersV2, getUserbyIdV2, getAllUsersWithPhotosV2, createPhoto, deletePhoto, updateUser } = require("../queries/usersQueriesV2");
 const { getPhotosbyUserId } = require("../queries/photosQueries");
 const { getAllCities } = require("../queries/citiesQueries");
 
-const usersControllerV2 = express.Router();
-//whn to keep mergeParams?
-//const usersControllerV2 = express.Router({ mergeParams:true });
+
+const usersControllerV2 = express.Router({mergeParams:true});
 
 //INDEX of ALL USERS AND PHOTOS AND CITIES
 usersControllerV2.get("/", async (request, response) => {
@@ -27,7 +26,7 @@ usersControllerV2.get("/", async (request, response) => {
   }
 });
 
-//SHOW ONE USER 
+//SHOW ONE USER
 usersControllerV2.get("/:id", async (request, response) => {
   try {
     const { id } = request.params;
@@ -42,6 +41,22 @@ usersControllerV2.get("/:id", async (request, response) => {
     response.status(500).json({ error: err.message });
   }
 });
+
+//put update
+
+usersControllerV2.put("/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const updatedUser = await updateUser(id,req.body);
+    console.log('Updated User:', updatedUser);
+
+      res.status(200).json({data: updatedUser});
+    
+  } catch (e) {
+    res.json({ err: e.message });
+  }
+});
+
 
 //SHOW USERS PHOTOS
 usersControllerV2.get("/:id/photos", async (request, response) => {
@@ -58,29 +73,34 @@ usersControllerV2.get("/:id/photos", async (request, response) => {
   }
 });
 
-//put update 
-
-// usersControllerV2.put('/:id/photos', async (req,res) => {
-//   const {id} = req.params;
-//   try{
-//     const updateUser = await updateUsers(id,req.body);
-//     res.status(200).json(updateUser.length ? updateUser : [updateUser] )
-//   }catch (e){
-//     res.status(400).json({err:e.message})
+//CREATE - POST METHOD photos
+// usersControllerV2.post("/:id/photos", async (req, res, next) => {
+//   try {
+//     const userPost = createPhoto(req.body);
+//     if (userPost.id) {
+//       res.status(200).json({ payload: userPost });
+//     } else {
+//       throw "Photo upload did not upload";
+//     }
+//   } catch (e) {
+//     return next(e);
 //   }
-// })
+// });
 
-//delete 
-usersControllerV2.delete('/:id/photos', async (req,res) => {
-  const {id} = req.params;
-  try{
-    const deletedUser = await deleteUser(id);
-    res.status(200).json(deletedUser)
-  }catch (e) {
-    res.status(400).json({error:e.message})
+
+//delete
+usersControllerV2.delete("/:id/photos", async (req, res) => {
+  const { id } = req.params;
+  try {
+    const user = await getUserbyIdV2(id);
+    if(user) {
+      const deletedphoto = await deletePhoto(id);
+      res.status(200).json(deletedphoto);
+    }
+  } catch (e) {
+    res.status(400).json({ error: e.message });
   }
-})
+});
 
-//post create
 
 module.exports = usersControllerV2;

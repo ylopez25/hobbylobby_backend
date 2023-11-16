@@ -33,19 +33,20 @@ const createPhoto = async (post) => {
 };
 
 //UPDATE USER PROFILE
-const updateUser = async (id, user) => {
+const updateUser = async (id) => {
   try {
-    const updatedUser = await db.one("UPDATE users SET user_name=$1, firstname=$2, city_name=$3, skill=$4, pic=$5 WHERE id=$6 RETURNING *", [user.user_name, user.firstname, user.city_name, user.skill, user.pic, id]);
+    const updatedUser = await db.one('UPDATE users SET user_name=$1, email=$2, city_name=$3, city_id=$4, first_name=$5, last_name=$6, pic=$7, skill=$8 WHERE id=$9',
+     [user_name, email, city_name, city_id, first_name, last_name, pic, skill, id]);
     return updatedUser;
   } catch (err) {
     return err;
   }
 };
 
-//delete photos
+//delete photos //its deleting id 
 const deletePhoto = async (id) => {
   try {
-    const deletedPhoto = await db.one("DELETE FROM photos WHERE id=$1 RETURNING *", id);
+    const deletedPhoto = await db.one("DELETE FROM photos WHERE photos_user_id=$1 RETURNING *", id);
     return deletedPhoto;
   } catch (err) {
     return "error";
