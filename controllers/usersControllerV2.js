@@ -1,6 +1,6 @@
-//dependencies
+//DEPENDENCIES
 const express = require("express");
-//queries
+//QUERIES
 const { getAllUsersV2, getUserbyIdV2, getAllUsersWithPhotosV2, createPhoto, deletePhoto, updateUser } = require("../queries/usersQueriesV2");
 const { getPhotosbyUserId } = require("../queries/photosQueries");
 const { getAllCities } = require("../queries/citiesQueries");
@@ -68,7 +68,7 @@ usersControllerV2.post("/", async (req, res, next) => {
   }
 });
 
-//UPDATE PHOTO
+//UPDATE USER INFO
 usersControllerV2.put("/:id", async (req, res) => {
   console.log(req.body, "request body");
   try {
