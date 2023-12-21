@@ -28,9 +28,23 @@ const createPhoto = async (photos) => {
     let { photo, user_id } = photos;
     const newPost = await db.one("INSERT INTO photos (photo,user_id) VALUES ($1,$2) RETURNING *", [photo, user_id]);
     return newPost;
-  } catch (e) {
-    return e;
+  } catch (error) {
+      // Check if it's a specific error type, e.g., a constraint violation
+    if (error.code === '23505') {
+      // Unique constraint violation (duplicate entry)
+      return { error: 'Duplicate entry. This photo already exists.' };
+    }
+
+    // Check if it's a connection issue
+    if (error.code === 'ECONNREFUSED') {
+      return { error: 'Unable to connect to the database.' };
+    }
+
+    // Handle other types of errors
+    console.error('Error in createPhoto:', error.message);
+    return { error: 'An unexpected error occurred while creating the photo.' };
   }
+  
 };
 
 //UPDATE USER PROFILE
